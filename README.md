@@ -27,8 +27,8 @@ A web application that calculates the total duration of any YouTube playlist. Si
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/PlaylistTimeCalculator.git
-   cd PlaylistTimeCalculator
+   git clone https://github.com/shahil2911/playlist-time-calculator.git
+   cd playlist-time-calculator
    ```
 
 2. Create a virtual environment and install dependencies:
