@@ -85,7 +85,9 @@ def get_playlist_info(playlist_id):
                 total_seconds += seconds
         
         # Check if any videos were unavailable
-        unavailable_videos = len(video_ids) - video_count
+        # Only count as unavailable if there's a significant difference
+        unavailable_count = len(video_ids) - video_count
+        unavailable_videos = unavailable_count if unavailable_count > 2 else 0
         
         # Calculate hours, minutes, seconds
         hours, remainder = divmod(total_seconds, 3600)

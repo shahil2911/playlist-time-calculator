@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Make sure loading element is hidden on page load
+    document.getElementById('loading').classList.add('hidden');
+    document.getElementById('error').classList.add('hidden');
+    
+    // Ensure the error section is hidden on page load
+    if (document.getElementById('unavailable-videos')) {
+        document.getElementById('unavailable-videos').classList.add('hidden');
+    }
     const form = document.getElementById('playlist-form');
     const loadingElement = document.getElementById('loading');
     const resultsElement = document.getElementById('results');
@@ -89,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (response.ok) {
                 displayResults(data);
+                // Results displayed successfully
             } else {
                 showError(data.error || 'An error occurred');
             }
@@ -98,7 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    function displayResults(data) {
+// Share functionality removed
+
+function displayResults(data) {
         // Set playlist title
         document.getElementById('playlist-title').textContent = data.playlist_title;
         
