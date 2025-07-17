@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Playlist Time Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <i class="fab fa-youtube"></i> 
+                Playlist Time Calculator
+            </h1>
+            <p class="subtitle">Find out how long it takes to watch any YouTube playlist</p>
+        </header>
+
+        <main>
+            <div class="input-container">
+                <form id="playlist-form">
+                    <div class="form-group">
+                        <label for="playlist-url">Paste YouTube Playlist URL:</label>
+                        <div class="input-with-button">
+                            <input 
+                                type="text" 
+                                id="playlist-url" 
+                                placeholder="https://www.youtube.com/playlist?list=..."
+                                required
+                            >
+                            <button type="submit" class="calculate-button">
+                                <i class="fas fa-calculator"></i> Calculate
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Calculating playlist duration...</p>
+            </div>
+
+            <div id="results" class="hidden">
+                <h2 id="playlist-title"></h2>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Total Duration</h3>
+                        <p id="formatted-duration"></p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <i class="fas fa-video"></i>
+                        <h3>Videos</h3>
+                        <p id="video-count"></p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <i class="fas fa-calendar-day"></i>
+                        <h3>Watch Time</h3>
+                        <p id="watch-time"></p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <i class="fas fa-forward"></i>
+                        <h3>At 1.5x Speed</h3>
+                        <p id="speed-time"></p>
+                    </div>
+                </div>
+
+                <div class="additional-info">
+                    <p id="unavailable-videos" class="hidden">
+                        <i class="fas fa-exclamation-triangle"></i> 
+                        <span id="unavailable-count"></span> videos in this playlist are unavailable and not included in the calculation.
+                    </p>
+                </div>
+            </div>
+
+            <div id="error" class="hidden">
+                <i class="fas fa-exclamation-circle"></i>
+                <p id="error-message"></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Created by <a href="https://github.com/yourusername" target="_blank">Your Name</a> | 
+               <a href="https://github.com/yourusername/PlaylistTimeCalculator" target="_blank">
+                   <i class="fab fa-github"></i> Source
+               </a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
