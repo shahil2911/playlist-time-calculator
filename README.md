@@ -52,6 +52,8 @@ A web application that calculates the total duration of any YouTube playlist. Si
 
 ## Deployment
 
+Deployed Project - `https://playlist-time-calculator.onrender.com`
+
 This application is deployed on Render. To deploy your own version:
 
 1. Fork this repository
